@@ -1,0 +1,60 @@
+{
+  "name": "blackwire",
+  "version": "0.1.0",
+  "description": "A live terminal backchannel for independent AI coding agents.",
+  "private": false,
+  "type": "module",
+  "bin": {
+    "blackwire": "dist/cli/index.js",
+    "blackwire-mcp": "dist/mcp/server.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "SECURITY.md",
+    "docs"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/cli/index.js",
+    "demo": "node dist/cli/index.js demo",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "bundle:pypi": "esbuild src/cli/index.ts --bundle --platform=node --format=esm --target=node22 --banner:js=\"import { createRequire } from 'node:module'; const require = createRequire(import.meta.url);\" --outfile=python/blackwire_launcher/vendor/cli.mjs && esbuild src/mcp/server.ts --bundle --platform=node --format=esm --target=node22 --banner:js=\"import { createRequire } from 'node:module'; const require = createRequire(import.meta.url);\" --outfile=python/blackwire_launcher/vendor/mcp.mjs",
+    "release:check": "npm run typecheck && npm test && npm run build",
+    "release:pypi": "npm run release:check && npm run bundle:pypi",
+    "prepack": "npm run build"
+  },
+  "dependencies": {
+    "commander": "^13.1.0",
+    "ws": "^8.18.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.4",
+    "@types/ws": "^8.5.14",
+    "esbuild": "^0.28.1",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
+  },
+  "engines": {
+    "node": ">=22.5",
+    "npm": ">=10"
+  },
+  "keywords": [
+    "ai",
+    "cli",
+    "terminal",
+    "mcp",
+    "agents",
+    "gemini",
+    "codex",
+    "claude"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}

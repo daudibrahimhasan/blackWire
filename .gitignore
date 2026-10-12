@@ -1,0 +1,22 @@
+node_modules/
+dist/
+.blackwire/
+coverage/
+*.log
+*.tgz
+pypi-dist/
+python/blackwire_launcher/vendor/
+*.egg-info/
+build/
+.release-venv/
+.smoke-venv/
+.tmp/
+
+.npm-cache/
+.env
+.env.*
+__pycache__/
+*.pyc
+# Personal development prompts
+plan.txt
+prompt.txt

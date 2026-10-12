@@ -1,0 +1,33 @@
+name: GitHub release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: npm ci
+      - run: npm run release:check
+      - name: Verify tag matches package version
+        run: node -e "const p=require('./package.json'); if (process.env.GITHUB_REF_NAME !== 'v'+p.version) throw new Error('Tag and package version differ')"
+      - run: npm pack
+      - run: npm run bundle:pypi
+      - run: python -m pip install build
+      - run: python -m build --outdir pypi-dist
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" blackwire-*.tgz pypi-dist/* --verify-tag --generate-notes --title "BlackWire $GITHUB_REF_NAME"
