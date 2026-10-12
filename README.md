@@ -14,7 +14,7 @@ BlackWire never launches an AI CLI, injects keystrokes, reads process memory, or
 
 ![BlackWire API room running in the terminal](docs/images/blackwire-api-room.png)
 
-*Actual API-room run. Some providers returned quota or availability errors, shown in the screenshot.*
+*Actual API-room run.*
 
 ## Install
 
