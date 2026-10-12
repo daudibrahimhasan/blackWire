@@ -29,12 +29,12 @@
   },
   "dependencies": {
     "commander": "^13.1.0",
-    "ws": "^8.18.0",
+    "ws": "^8.22.0",
     "zod": "^3.24.2"
   },
   "devDependencies": {
     "@types/node": "^22.13.4",
-    "@types/ws": "^8.5.14",
+    "@types/ws": "^8.18.2",
     "esbuild": "^0.28.1",
     "typescript": "^5.7.3",
     "vitest": "^3.0.5"
