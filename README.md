@@ -168,4 +168,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md), [production operation](docs/production.m
 
 Version `0.1.0` is an initial public release. The mock path, local daemon, session registry, message routing, MCP bridge, connector generation, process discovery, selector, merged room, API room, security validation, and release checks are implemented. Real CLI behavior still depends on each CLI's supported MCP lifecycle and the model choosing to use the BlackWire tools.
 
-MIT licensed. [![M8ven Score](https://m8ven.ai/badge/mcp/daudibrahimhasan-blackwire-xmisi3?v=5cb7f524a207c9a3f8e78df24a441088)](https://m8ven.ai/mcp/daudibrahimhasan-blackwire-xmisi3?s=readme)
+[![M8ven Score](https://m8ven.ai/badge/mcp/daudibrahimhasan-blackwire-xmisi3?v=5cb7f524a207c9a3f8e78df24a441088)](https://m8ven.ai/mcp/daudibrahimhasan-blackwire-xmisi3?s=readme)
+
+MIT licensed. 
